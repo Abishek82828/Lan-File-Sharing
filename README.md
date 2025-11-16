@@ -1,32 +1,19 @@
-```markdown
 # LAN File Sharing Web Server
 
-This is simple FastAPI based file sharing website for local network. Using this you can upload, download, delete files from any device in same Wi-Fi. Very fast and easy to use.
+A simple FastAPI-based file sharing tool for local network use. Allows uploading, downloading, and deleting files from any device connected to the same Wi-Fi network.
 
 ---
 
 ## Features
 
-### ✔ Easy File Upload
-- Drag and drop file
-- Progress bar coming
-- Image and PDF preview also working
-- Simple alerts showing
-
-### ✔ File Management
-- Download any file
-- Delete file fast
-- Auto refresh file list
-
-### ✔ LAN Support
-- Show your local IP address
-- Works on mobile, laptop, PC everything in same Wi-Fi
-- Mobile friendly webpage
-
-### ✔ Lightweight
-- No database
-- Pure FastAPI backend
-- Very fast working
+- Upload files with progress indication
+- Image and PDF preview before upload
+- Download saved files
+- Delete unwanted files
+- Auto-refresh file list
+- Works on mobile and desktop browsers
+- Shows local IP address for sharing
+- No database required, lightweight and fast
 
 ---
 
@@ -37,18 +24,14 @@ project/
 │── app.py
 │── templates/
 │     └── index.html
-│── uploads/         ← created automatically
+│── uploads/        (created automatically)
 │── README.md
 │── requirements.txt
 ```
 
 ---
 
-## Installation
-
-### 1) Install required packages
-
-requirements.txt:
+## Requirements
 
 ```
 fastapi
@@ -57,13 +40,13 @@ jinja2
 python-multipart
 ```
 
-Install:
+Install all requirements:
 
 ```
 pip install -r requirements.txt
 ```
 
-Or manually:
+Or install manually:
 
 ```
 pip install fastapi uvicorn jinja2 python-multipart
@@ -71,38 +54,39 @@ pip install fastapi uvicorn jinja2 python-multipart
 
 ---
 
-## Run the Server
+## Running the Server
 
-Run:
+Start the server:
 
 ```
 python app.py
 ```
 
-Then you will see something like:
+You will see output similar to:
 
 ```
-Server running on http://192.168.X.X:8000
+Server running on http://192.168.x.x:8000
 ```
 
-Open this link in phone or laptop inside same Wi-Fi.
+Open the link on any device connected to the same Wi-Fi network.
 
 ---
 
 ## How to Use
 
-### Upload Files
-- Drag file or select file  
-- Upload progress showing  
-- Preview image or pdf  
+### Uploading Files
+- Choose a file or drag and drop
+- Preview shows if it's an image or PDF
+- Upload progress is displayed
+- File appears in the list after upload
 
-### Download Files
-Just click **Download** button.
+### Downloading Files
+Click the **Download** link next to the file name.
 
-### Delete Files
-Press **Delete** button.
+### Deleting Files
+Click the **Delete** button to remove the file.
 
-Files saved inside:
+Uploaded files are stored inside:
 
 ```
 uploads/
@@ -110,21 +94,21 @@ uploads/
 
 ---
 
-## Build EXE (Windows)
+## Building Windows EXE
 
-Install pyinstaller:
+Install PyInstaller:
 
 ```
 pip install pyinstaller
 ```
 
-Build exe:
+Build the executable:
 
 ```
 pyinstaller --onefile --add-data "templates;templates" --add-data "uploads;uploads" app.py
 ```
 
-Your exe will come here:
+Output EXE will be available inside:
 
 ```
 dist/app.exe
@@ -134,16 +118,17 @@ dist/app.exe
 
 ## API Endpoints
 
-| Method | Endpoint | Work |
-|--------|----------|------|
-| GET | `/` | Show webpage |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | Main webpage |
 | POST | `/uploadfile/` | Upload file |
 | GET | `/downloadfile/{filename}` | Download file |
 | POST | `/deletefile/{filename}` | Delete file |
 
 ---
 
-## Security Note
-This is only for local Wi-Fi use.  
-Don’t use on public internet without password, HTTPS, etc.
-```
+## Security Notice
+
+This tool is designed for local Wi-Fi sharing only.  
+Do not expose it to the internet without proper security (authentication, HTTPS, etc.).
+
